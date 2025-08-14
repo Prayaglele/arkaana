@@ -100,7 +100,7 @@
             <div class="absolute -inset-x-6 -inset-y-6 -z-10 rounded-3xl bg-white/5 blur-2xl"></div>
             <div class="rounded-3xl border border-white/10 bg-white/5 p-4 shadow-2xl">
               <div class="rounded-2xl border border-white/10 bg-[#160E26] p-5">
-                <!-- Principles panel: logo removed, new points -->
+                <!-- Principles panel (logo removed, refreshed points) -->
                 <div class="flex items-center gap-3">
                   <span class="text-sm font-semibold text-white/80">Principles</span>
                   <svg class="star ml-auto h-5 w-5 text-aurum" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.3 5.7L20 10l-5.7 2.3L12 18l-2.3-5.7L4 10l5.7-2.3L12 2z"/></svg>
@@ -153,7 +153,7 @@
         </div>
       </section>
 
-      <!-- How it works -->
+      <!-- How it works & Improvements -->
       <section id="how" class="border-y border-white/10 py-20">
         <div class="mx-auto max-w-7xl px-4 sm:px-6">
           <div class="grid items-start gap-10 md:grid-cols-2">
@@ -227,7 +227,7 @@
         </div>
       </section>
 
-      <!-- Contact / Waitlist (Netlify Forms enabled) -->
+      <!-- Contact / Waitlist (Netlify Forms, in-page success) -->
       <section id="contact" class="border-t border-white/10 py-20">
         <div class="mx-auto max-w-7xl px-4 sm:px-6">
           <div class="grid gap-8 md:grid-cols-2">
@@ -240,39 +240,49 @@
               </ul>
             </div>
 
-            <!-- Netlify Forms integration -->
-            <form name="waitlist" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-sm">
-              <!-- Honeypot field (hidden) -->
-              <p class="hidden">
-                <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-              </p>
-              <!-- Required hidden input -->
+            <form id="waitlist" name="waitlist" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-sm">
+              <!-- Netlify required hidden input and honeypot -->
               <input type="hidden" name="form-name" value="waitlist" />
+              <p class="hidden"><label>Don’t fill this out if you’re human: <input name="bot-field" /></label></p>
 
-              <h3 class="text-lg font-semibold">Join the early access list</h3>
-              <div class="mt-4 grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label for="name" class="block text-sm text-white/80">Name</label>
-                  <input id="name" name="name" required type="text" class="mt-1 w-full rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-white placeholder-white/40 shadow-sm focus:border-aurum focus:outline-none focus:ring-2 focus:ring-aurum/60" placeholder="Ada Lovelace" />
+              <!-- Fields wrapper (we'll hide after success) -->
+              <div id="form-fields">
+                <h3 class="text-lg font-semibold">Join the early access list</h3>
+                <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label for="name" class="block text-sm text-white/80">Name</label>
+                    <input id="name" name="name" required type="text" class="mt-1 w-full rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-white placeholder-white/40 shadow-sm focus:border-aurum focus:outline-none focus:ring-2 focus:ring-aurum/60" placeholder="Ada Lovelace" />
+                  </div>
+                  <div>
+                    <label for="email" class="block text-sm text-white/80">Work email</label>
+                    <input id="email" name="email" required type="email" class="mt-1 w-full rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-white placeholder-white/40 shadow-sm focus:border-aurum focus:outline-none focus:ring-2 focus:ring-aurum/60" placeholder="you@company.com" />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label for="company" class="block text-sm text-white/80">Company</label>
+                    <input id="company" name="company" type="text" class="mt-1 w-full rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-white placeholder-white/40 shadow-sm focus:border-aurum focus:outline-none focus:ring-2 focus:ring-aurum/60" placeholder="Acme Inc." />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label for="message" class="block text-sm text-white/80">What would you use Arkaana for?</label>
+                    <textarea id="message" name="message" rows="4" class="mt-1 w-full rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-white placeholder-white/40 shadow-sm focus:border-aurum focus:outline-none focus:ring-2 focus:ring-aurum/60" placeholder="Tell us about your hiring challenges..."></textarea>
+                  </div>
                 </div>
-                <div>
-                  <label for="email" class="block text-sm text-white/80">Work email</label>
-                  <input id="email" name="email" required type="email" class="mt-1 w-full rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-white placeholder-white/40 shadow-sm focus:border-aurum focus:outline-none focus:ring-2 focus:ring-aurum/60" placeholder="you@company.com" />
-                </div>
-                <div class="sm:col-span-2">
-                  <label for="company" class="block text-sm text-white/80">Company</label>
-                  <input id="company" name="company" type="text" class="mt-1 w-full rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-white placeholder-white/40 shadow-sm focus:border-aurum focus:outline-none focus:ring-2 focus:ring-aurum/60" placeholder="Acme Inc." />
-                </div>
-                <div class="sm:col-span-2">
-                  <label for="message" class="block text-sm text-white/80">What would you use Arkaana for?</label>
-                  <textarea id="message" name="message" rows="4" class="mt-1 w-full rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-white placeholder-white/40 shadow-sm focus:border-aurum focus:outline-none focus:ring-2 focus:ring-aurum/60" placeholder="Tell us about your hiring challenges..."></textarea>
-                </div>
+                <button type="submit" class="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-aurum px-5 py-3 font-semibold text-midnight shadow-soft">Request access</button>
+                <p class="mt-2 text-center text-xs text-white/60">We care about privacy. Unsubscribe anytime.</p>
               </div>
-              <!-- Optional: Netlify reCAPTCHA (uncomment to enable, then toggle in Netlify UI)
-              <div class="mt-4" data-netlify-recaptcha="true"></div>
-              -->
-              <button type="submit" class="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-aurum px-5 py-3 font-semibold text-midnight shadow-soft">Request access</button>
-              <p class="mt-2 text-center text-xs text-white/60">We care about privacy. Unsubscribe anytime.</p>
+
+              <!-- Success / Error messages (hidden by default) -->
+              <div id="form-success" class="hidden text-center">
+                <div class="mx-auto mb-3 mt-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-300">✓</div>
+                <h4 class="text-lg font-semibold">Thanks! You’re on the list.</h4>
+                <p class="mt-1 text-white/70">We’ll reach out from <span class="underline">founders@arkaana.ai</span> soon.</p>
+                <button type="button" class="mt-4 rounded-xl border border-white/15 px-4 py-2 text-sm hover:bg-white/5" onclick="document.getElementById('form-fields').classList.remove('hidden'); document.getElementById('form-success').classList.add('hidden');">Add another</button>
+              </div>
+
+              <div id="form-error" class="hidden text-center">
+                <div class="mx-auto mb-3 mt-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-rose-500/20 text-rose-300">!</div>
+                <h4 class="text-lg font-semibold">Something went wrong.</h4>
+                <p class="mt-1 text-white/70">Please try again or email <a class="underline" href="mailto:founders@arkaana.ai">founders@arkaana.ai</a>.</p>
+              </div>
             </form>
           </div>
         </div>
@@ -298,7 +308,10 @@
 
     <!-- Scripts -->
     <script>
+      // Year
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Mobile nav
       const menuBtn = document.getElementById('menuBtn');
       const mobileMenu = document.getElementById('mobileMenu');
       if (menuBtn && mobileMenu) {
@@ -307,6 +320,35 @@
           menuBtn.setAttribute('aria-expanded', String(!open));
         });
       }
+
+      // Netlify Forms: in-page submission (no redirect)
+      const form = document.getElementById('waitlist');
+      const fields = document.getElementById('form-fields');
+      const ok = document.getElementById('form-success');
+      const err = document.getElementById('form-error');
+
+      function encodeFormData(formEl){
+        const data = new FormData(formEl);
+        return new URLSearchParams(data).toString();
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        try {
+          await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encodeFormData(form)
+          });
+          form.reset();
+          fields.classList.add('hidden');
+          ok.classList.remove('hidden');
+          err.classList.add('hidden');
+        } catch (e) {
+          err.classList.remove('hidden');
+          ok.classList.add('hidden');
+        }
+      });
     </script>
 
     <!-- Structured data -->
