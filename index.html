@@ -1,42 +1,279 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arkaana AI</title>
-  <style>
-    body {
-      background-color: #1C0D35;
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-      padding: 2rem;
-    }
-    .logo {
-      max-width: 300px;
-      height: auto;
-      margin-bottom: 30px;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1.2rem;
-      line-height: 1.5;
-    }
-  </style>
-</head>
-<body>
-  <img src="Logo Horizontal2.png" alt="Arkaana AI Logo" class="logo" />
-  <h1>Arkaana AI Private Limited</h1>
-  <p>
-    CIN: U62011PN2025PTC244331
-  </p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arkaana.ai — The next evolution of how humans and AI hire together</title>
+    <meta name="description" content="Arkaana is not another AI tool; it’s the next evolution of how humans and AI hire together. Eliminate inefficiencies, enhance interviews, and build trust in data with Aria, Interwoof, and BlockCV." />
+    <meta name="theme-color" content="#F5A300" />
+
+    <!-- Dosis font (external). If you want this embedded too, say the word and I’ll inline a WOFF. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon uses embedded logo -->
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB4AAAAQ4CAIAAABnsVYUAAABgmlDQ1BzUkNQIFJHQiBJRUM2MTk2Ni0yLjEgY29tcGF0aWJsZQAAKJFjYGBgYH7/AwMDCBMlIATiQJrAzAIMDAyM/4EBAQY2BhaFhY2B4aPiDGQZgYGBiYGVgYGJgYGBQckBmYGBgYgABThgAPFQf2F7wAAAAEZ0FNQQAAsY58Lr8AAAAJcEhZcwAACxIAAAsSAdLdfvwAABcSSURBVHhe7d0JkBzlbX5xp3QFh0H2z0e2g2Gqk0m0lq1o9j5bQ9XK3z3rC3k0iS0X7m6U2mY7k2b3/9j2lR5m1rKqv2J0bJt0m4Ck0b+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" />
+
+    <!-- Inline CSS (no Tailwind) -->
+    <style>
+      :root{
+        --midnight:#1B1230; /* brand background */
+        --midnight-900:#160E26;
+        --aurum:#F5A300; /* brand gold */
+        --text:#FFFFFF;
+        --muted:rgba(255,255,255,.8);
+        --muted-2:rgba(255,255,255,.6);
+        --border:rgba(255,255,255,.12);
+      }
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{margin:0; font-family:"Dosis",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu; background:var(--midnight); color:var(--text); -webkit-font-smoothing:antialiased;}
+      a{color:inherit; text-decoration:none}
+      .container{max-width:1120px; margin:0 auto; padding:0 1.25rem}
+      .btn{display:inline-flex; align-items:center; justify-content:center; padding:.9rem 1.25rem; font-weight:600; border-radius:14px; border:1px solid transparent; cursor:pointer}
+      .btn-primary{background:var(--aurum); color:var(--midnight); box-shadow:0 10px 40px -10px rgba(245,163,0,.35)}
+      .btn-ghost{border-color:var(--border); background:rgba(255,255,255,.06); color:var(--text)}
+      .pill{display:inline-flex; align-items:center; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; font-weight:600; color:#FFDFA3}
+      .h1{font-size:clamp(2.25rem,4vw+1rem,3.25rem); line-height:1.1; font-weight:800; margin:0}
+      .h2{font-size:clamp(1.75rem,2vw+1rem,2.25rem); line-height:1.2; font-weight:800; margin:0}
+      .h3{font-size:1.1rem; font-weight:700; margin:0}
+      p{margin:.75rem 0; color:var(--muted)}
+      header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(8px); background:rgba(27,18,48,.85); border-bottom:1px solid var(--border)}
+      .nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+      .nav a{opacity:.85; margin-left:24px}
+      .nav a:hover{opacity:1}
+      .brand{display:flex; align-items:center; gap:.75rem}
+      .brand img{height:36px}
+
+      /* hero */
+      .hero{position:relative; padding:72px 0 96px; background:
+        radial-gradient(800px 320px at 50% -10%, rgba(245,163,0,.10), transparent 60%),
+        radial-gradient(700px 300px at 90% 0%, rgba(255,255,255,.06), transparent 60%);
+      }
+      .hero-grid{display:grid; gap:40px; grid-template-columns:1.1fr 1fr}
+      .hero-card{border:1px solid var(--border); background:rgba(255,255,255,.06); border-radius:22px; padding:16px; box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+      .panel{border:1px solid var(--border); background:var(--midnight-900); border-radius:18px; padding:16px}
+      .bubble{border:1px solid var(--border); border-radius:14px; padding:12px}
+      .bubble.alt{background:rgba(255,255,255,.06)}
+
+      /* sections */
+      section{padding:72px 0}
+      .cards{display:grid; gap:18px; grid-template-columns:repeat(3,1fr)}
+      .card{border:1px solid var(--border); background:rgba(255,255,255,.06); border-radius:18px; padding:22px}
+      .list{display:grid; gap:10px; font-size:.95rem}
+
+      /* contact */
+      form input, form textarea{width:100%; color:var(--text); background:rgba(255,255,255,.08); border:1px solid var(--border); border-radius:14px; padding:10px 12px}
+      form input::placeholder, form textarea::placeholder{color:rgba(255,255,255,.45)}
+
+      footer{border-top:1px solid var(--border); padding:28px 0; color:var(--muted-2)}
+
+      /* responsive */
+      @media (max-width: 960px){
+        .nav a{margin-left:16px}
+        .hero-grid{grid-template-columns:1fr}
+        .cards{grid-template-columns:1fr}
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <img alt="Arkaana" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB4AAAAQ4CAIAAABnsVYUAAABgmlDQ1BzUkNQIFJHQiBJRUM2MTk2Ni0yLjEgY29tcGF0aWJsZQAAKJFjYGBgYH7/AwMDCBMlIATiQJrAzAIMDAyM/4EBAQY2BhaFhY2B4aPiDGQZgYGBiYGVgYGJgYGBQckBmYGBgYgABThgAPFQf2F7wAAAAEZ0FNQQAAsY58Lr8AAAAJcEhZcwAACxIAAAsSAdLdfvwAABcSSURBVHhe7d0JkBzlbX5xp3QFh0H2z0e2g2Gqk0m0lq1o9j5bQ9XK3z3rC3k0iS0X7m6U2mY7k2b3/9j2lR5m1rKqv2J0bJt0m4Ck0b+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" />
+        </div>
+        <nav>
+          <a href="#approach">Approach</a>
+          <a href="#stack">Product Stack</a>
+          <a href="#how">How it Works</a>
+          <a href="#partners">Partners</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div>
+          <a class="btn btn-ghost" href="#contact">Talk to us</a>
+          <a class="btn btn-primary" href="#waitlist">Request a pilot</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <span class="pill">Hiring, reimagined</span>
+            <h1 class="h1" style="margin-top:.35rem">The next evolution of how <span style="color:var(--aurum)">humans and AI</span> hire together</h1>
+            <p style="margin-top:1rem; max-width:40ch">Hiring is not just about filling roles; it's about shaping culture. Today, the process is noisy—inefficiencies, bias, and narrow signals. Arkaana brings clarity, rigor, and empathy across the entire journey.</p>
+            <div style="margin-top:1.2rem; display:flex; gap:.6rem; flex-wrap:wrap; align-items:center">
+              <a href="#waitlist" class="btn btn-primary">Request a pilot</a>
+              <a href="#how" class="btn btn-ghost">See how it works</a>
+              <span style="margin-left:.4rem; font-size:.9rem; color:var(--muted-2)">Private by default • Human‑in‑the‑loop • Auditable</span>
+            </div>
+          </div>
+          <div>
+            <div class="hero-card">
+              <div class="panel">
+                <div style="display:flex; align-items:center; gap:.6rem">
+                  <img alt="Arkaana" style="height:28px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB4AAAAQ4CAIAAABnsVYUAAABgmlDQ1BzUkNQIFJHQiBJRUM2MTk2Ni0yLjEgY29tcGF0aWJsZQAAKJFjYGBgYH7/AwMDCBMlIATiQJrAzAIMDAyM/4EBAQY2BhaFhY2B4aPiDGQZgYGBiYGVgYGJgYGBQckBmYGBgYgABThgAPFQf2F7wAAAAEZ0FNQQAAsY58Lr8AAAAJcEhZcwAACxIAAAsSAdLdfvwAABcSSURBVHhe7d0JkBzlbX5xp3QFh0H2z0e2g2Gqk0m0lq1o9j5bQ9XK3z3rC3k0iS0X7m6U2mY7k2b3/9j2lR5m1rKqv2J0bJt0m4Ck0b+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" />
+                  <span style="font-size:.95rem; font-weight:700; opacity:.8">Arkaana Assistant</span>
+                </div>
+                <div style="margin-top:.8rem; display:grid; gap:.6rem; font-size:.95rem">
+                  <div class="bubble"><div style="opacity:.7">Hiring team</div><p style="margin:.25rem 0 0">“Draft a structured interview plan for Senior Backend Engineer; reduce bias and map to competencies.”</p></div>
+                  <div class="bubble alt"><div style="opacity:.7">Arkaana</div><p style="margin:.25rem 0 0">Generated plan with behavioral, technical, and collaboration rubrics. Aligned to role scorecard. Ready to share.</p></div>
+                  <div class="bubble"><div style="opacity:.7">Recruiter</div><p style="margin:.25rem 0 0">“Summarize signal across interviews and verify claims against experience.”</p></div>
+                  <div class="bubble alt"><div style="opacity:.7">Arkaana</div><p style="margin:.25rem 0 0">Unified eval with cited evidence. Risk flags detected; confidence 0.82. Exported to ATS.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Approach -->
+      <section id="approach">
+        <div class="container" style="text-align:center; max-width:760px">
+          <h2 class="h2">Our Approach Is Our Edge</h2>
+          <p style="margin-top:1rem">We’ve designed the stack from the inside out with a holistic approach. We’re not just building features — we’re reimagining the hiring foundation.</p>
+        </div>
+      </section>
+
+      <!-- Product Stack -->
+      <section id="stack" style="padding-top:16px; padding-bottom:72px">
+        <div class="container">
+          <div class="cards">
+            <div class="card">
+              <h3 class="h3">Aria</h3>
+              <p>Eliminate inefficiencies. From role scorecards to structured JD creation, sourcing briefs, and candidate de‑duplication—Aria orchestrates repeatable best practices.</p>
+            </div>
+            <div class="card">
+              <h3 class="h3">Interwoof</h3>
+              <p>Enhance interviews. Generate competency‑based interview plans, real‑time prompts, and post‑interview summaries that reduce bias and improve signal.</p>
+            </div>
+            <div class="card">
+              <h3 class="h3">BlockCV</h3>
+              <p>Verify and build trust in data. Evidence‑backed profiles, claim verification, and secure sharing to protect candidates and empower teams.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section id="how" style="border-block:1px solid var(--border)">
+        <div class="container" style="display:grid; gap:36px; grid-template-columns:1.1fr 1fr">
+          <div>
+            <h2 class="h2">How Arkaana works</h2>
+            <ol class="list" style="margin-top:1rem">
+              <li><span class="h3" style="color:var(--aurum)">1.</span> <strong>Model the role & success</strong> — Define competencies, outcomes, and anti‑bias guardrails from day one.</li>
+              <li><span class="h3" style="color:var(--aurum)">2.</span> <strong>Run structured, human‑centered loops</strong> — Guided interviews, notes, and evaluations—grounded in evidence, not vibes.</li>
+              <li><span class="h3" style="color:var(--aurum)">3.</span> <strong>Decide with clarity</strong> — Unified signals, verified claims, and transparent trade‑offs for confident offers.</li>
+            </ol>
+            <div style="margin-top:1.2rem; display:flex; gap:.6rem">
+              <a href="#contact" class="btn btn-primary">Talk to us</a>
+              <a href="#docs" class="btn btn-ghost">Product overview</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="h3">What improves with Arkaana</h3>
+            <ul class="list" style="margin-top:.6rem">
+              <li>• Time‑to‑role clarity ↓</li>
+              <li>• Interviewer alignment ↑</li>
+              <li>• Signal quality & fairness ↑</li>
+              <li>• Candidate experience ↑</li>
+              <li>• Evidence & auditability ↑</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Partners / CTA -->
+      <section id="partners">
+        <div class="container" style="max-width:760px; text-align:center">
+          <h2 class="h2">Partner with us</h2>
+          <p style="margin-top:1rem">We’re collaborating with design‑partner teams to shape the future of hiring. Join the early access program.</p>
+          <div style="margin-top:1.2rem; display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap">
+            <a href="#waitlist" class="btn btn-primary">Request a pilot</a>
+            <a href="#contact" class="btn btn-ghost">Contact sales</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" style="border-top:1px solid var(--border)">
+        <div class="container" style="max-width:820px">
+          <h2 class="h2">Frequently asked questions</h2>
+          <details style="margin-top:1rem" class="card">
+            <summary class="h3" style="cursor:pointer">How is Arkaana different from other AI hiring tools?</summary>
+            <p style="margin-top:.6rem">We take a system view across the hiring lifecycle—role modeling, interviews, and verification—combining human judgment with auditable AI. It’s not a point solution; it’s a new foundation.</p>
+          </details>
+          <details style="margin-top:.6rem" class="card">
+            <summary class="h3" style="cursor:pointer">How do you reduce bias?</summary>
+            <p style="margin-top:.6rem">Structured scorecards, competency‑based prompts, and evidence‑linked summaries reduce subjectivity. Human reviewers remain in control at each step.</p>
+          </details>
+          <details style="margin-top:.6rem" class="card">
+            <summary class="h3" style="cursor:pointer">What about privacy and security?</summary>
+            <p style="margin-top:.6rem">Private by default. Data residency controls, role‑based access, and full audit trails. Candidate‑shared artifacts respect consent and revocation.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Contact / Waitlist -->
+      <section id="contact" style="border-top:1px solid var(--border)">
+        <div class="container" style="display:grid; gap:32px; grid-template-columns:1fr 1fr">
+          <div>
+            <h2 class="h2">Say hello 👋</h2>
+            <p>Questions, partnerships, or want a walkthrough? Drop us a note.</p>
+            <ul class="list">
+              <li>• Email: <a style="text-decoration:underline; text-underline-offset:4px; text-decoration-color:var(--aurum)" href="mailto:team@arkaana.ai">team@arkaana.ai</a></li>
+              <li>• X / Twitter: <a style="text-decoration:underline; text-underline-offset:4px; text-decoration-color:var(--aurum)" href="#">@arkaana_ai</a></li>
+              <li>• LinkedIn: <a style="text-decoration:underline; text-underline-offset:4px; text-decoration-color:var(--aurum)" href="#">/company/arkaana</a></li>
+            </ul>
+          </div>
+          <form id="waitlist" class="card" onsubmit="event.preventDefault(); alert('Thanks! We\'ll be in touch soon.');">
+            <h3 class="h3">Join the early access list</h3>
+            <div style="display:grid; gap:12px; grid-template-columns:1fr 1fr; margin-top:.6rem">
+              <div style="grid-column:span 1">
+                <label for="name" style="font-size:.9rem; opacity:.9">Name</label>
+                <input id="name" required type="text" placeholder="Ada Lovelace" />
+              </div>
+              <div style="grid-column:span 1">
+                <label for="email" style="font-size:.9rem; opacity:.9">Work email</label>
+                <input id="email" required type="email" placeholder="you@company.com" />
+              </div>
+              <div style="grid-column:span 2">
+                <label for="company" style="font-size:.9rem; opacity:.9">Company</label>
+                <input id="company" type="text" placeholder="Acme Inc." />
+              </div>
+              <div style="grid-column:span 2">
+                <label for="message" style="font-size:.9rem; opacity:.9">What would you use Arkaana for?</label>
+                <textarea id="message" rows="4" placeholder="Tell us about your hiring challenges..."></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%; margin-top:.6rem">Request access</button>
+            <p style="text-align:center; margin-top:.35rem; font-size:.8rem; color:var(--muted-2)">We care about privacy. Unsubscribe anytime.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap">
+        <div style="display:flex; align-items:center; gap:10px">
+          <img alt="Arkaana" style="height:28px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB4AAAAQ4CAIAAABnsVYUAAABgmlDQ1BzUkNQIFJHQiBJRUM2MTk2Ni0yLjEgY29tcGF0aWJsZQAAKJFjYGBgYH7/AwMDCBMlIATiQJrAzAIMDAyM/4EBAQY2BhaFhY2B4aPiDGQZgYGBiYGVgYGJgYGBQckBmYGBgYgABThgAPFQf2F7wAAAAEZ0FNQQAAsY58Lr8AAAAJcEhZcwAACxIAAAsSAdLdfvwAABcSSURBVHhe7d0JkBzlbX5xp3QFh0H2z0e2g2Gqk0m0lq1o9j5bQ9XK3z3rC3k0iS0X7m6U2mY7k2b3/9j2lR5m1rKqv2J0bJt0m4Ck0b+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" />
+          <strong>arkaana.ai</strong>
+          <span style="opacity:.7">© <span id="year"></span></span>
+        </div>
+        <nav style="display:flex; gap:18px">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Security</a>
+          <a href="#">Status</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
